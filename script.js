@@ -2,37 +2,35 @@
 // write a function that chnages screen
 // target the screen
 
-// let screen = document.querySelector('.screen');
-// let allButtonArray = document.querySelectorAll('li')
+let screen = document.querySelector('.screen');
+let allButtonArray = document.querySelectorAll('li')
 
 
-// let currentText = '';
+let currentText = '';
 
 
 
-// function addAllListeners(param){
-//     for(let i =0; i < param.length; i++){
-//         param[i].addEventListener('click',change)
-//         console.log(param[i]);
-//     }
-// }
+function addAllListeners(param){
+    for(let i =0; i < param.length; i++){
+        param[i].addEventListener('click',change)
+        console.log(param[i]);
+    }
+}
 
-// addAllListeners(allButtonArray)
+addAllListeners(allButtonArray)
 
-// function change(param){
-//     if(param === undefined){
-//         screen.innerHTML = 'Do Math';
-//     } else {
-//         currentText = currentText + param.target.innerHTML;
-//         screen.innerHTML = currentText;
-//     }   
+function change(param){
+    if(param === undefined){
+        screen.innerHTML = 'Do Math';
+    } else {
+        currentText = currentText + param.target.innerHTML;
+        screen.innerHTML = currentText;
+    }   
    
-// }
+}
  
 
-// console.log(currentText);
-
-
+console.log(currentText);
 
 
 
@@ -43,14 +41,14 @@
 // we return the sum
 // console log 
 
-// function add(strParam){
-//     let nums = strParam.split('+');
-//     let sum = 0;
-//     for(i = 0; i < nums.length ; i++){
-//         sum = sum + parseInt(nums[i]); 
-//     }
-//     return sum;
-// }
+function add(strParam){
+    let nums = strParam.split('+');
+    let sum = 0;
+    for(i = 0; i < nums.length ; i++){
+        sum = sum + parseInt(nums[i]); 
+    }
+    return sum;
+}
 
 // console.log(add("-7+8.2")) //future handles decimals 
 // console.log(add("9+10"))
@@ -84,13 +82,13 @@ function subtract(strParam){
 function multiply(strParam){
     let nums = strParam.split('*')
 
-    let sum = parseInt(nums[0]) * parseInt(nums[1]);
-    return sum
+    let answer = parseInt(nums[0]) * parseInt(nums[1]);
+    return answer
     
 }
 
-// console.log(multiply("9*7"))
-// console.log(multiply('2*3')) //returns 6
+ //console.log(multiply("9*7"))
+//console.log(multiply('2*3')) //returns 6
 
 
 // declare a fucntion and give it a name pass through a parameter
@@ -114,18 +112,24 @@ function divide(strParam){
 
 
 function whichOpp(screentext){
-    console.log(screentext)
+    //console.log(screentext)
     
     if(screentext.indexOf("*") > -1){
-        // multiply(screentext)
-        console.log("callmultiplyfunction")
-    } 
+         return multiply(screentext)
+        
+    }  else if(screentext.indexOf("/")> -1){
+        return divide(screentext)
+    } else if(screentext.indexOf("+")> -1){
+        return add(screentext)
+    }  else if(screentext.indexOf("-")> -1){
+        return subtract(screentext)
+    }
 
 
 }
 
 
-whichOpp("7-8")
-whichOpp("2+8")
-whichOpp("2*3")
-whichOpp("3/7")
+console.log(whichOpp("8-7"))
+console.log(whichOpp("2+8"))
+console.log(whichOpp("2*3"))
+console.log(whichOpp("21/7"))
